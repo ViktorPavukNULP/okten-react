@@ -13,8 +13,8 @@ const Comments = () => {
             .then(value => setComments(value))
     },[])
     return (
-        <div className={'comments'}>
-            {comments.map(comment=> <Comment key={comment.id} id={comment.id} name={comment.name}/>)}
+        <div className="comments">
+            {comments.map(comment=> <Comment key={comment.id} id={comment.id} name={comment.name} body={comment.body}/>)}
         </div>
     );
 };

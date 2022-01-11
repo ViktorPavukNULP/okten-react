@@ -14,7 +14,7 @@ const Posts = () => {
     },[])
 
     return (
-        <div className={'posts'}>
+        <div className="posts">
             {posts.map(post => <Post key={post.id} id={post.id} title={post.title}/>)}
         </div>
     );

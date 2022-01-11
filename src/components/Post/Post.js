@@ -4,7 +4,7 @@ import './Post.css';
 
 const Post = ({id,title}) => {
     return (
-        <div className={'post'}>
+        <div className="post">
             <h3>{id} - {title}</h3>
         </div>
     );
