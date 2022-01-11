@@ -1,8 +1,9 @@
+import Launches from "./components/Launches/Launches";
 
 function App() {
   return (
     <div className="App">
-      Hello world
+      <Launches/>
     </div>
   );
 }
