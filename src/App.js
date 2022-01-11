@@ -1,9 +1,15 @@
+import Users from "./components/Users/Users";
+import Posts from "./components/Posts/Posts";
+import Comments from "./components/Comments/Comments";
 
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      Hello world - 1
+        <Users/>
+        <Posts/>
+        <Comments/>
     </div>
   );
 }
