@@ -5,24 +5,17 @@ import './Launches.css';
 
 const Launches = () => {
 
-    const [launches,setLaunches] = useState([]);
+    const [launches, setLaunches] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://api.spacexdata.com/v3/launches/')
             .then(value => value.json())
-            .then((value => setLaunches(value)))
-    },[])
+            .then((value => setLaunches(value.filter(launch => launch.launch_year !== "2020"))))
+    }, [])
 
     return (
         <div className="Launches">
-            {launches.map(launch => {
-                if (launch.launch_year !== "2020"){
-                     return <Launch key={launch.flight_number} name={launch.mission_name} year={launch.launch_year}
-                            patch={launch.links.mission_patch_small}/>
-                }
-                return null;
-                }
-            )}
+            {launches.map(launch => <Launch key={launch.flight_number} name={launch.mission_name} year={launch.launch_year} patch={launch.links.mission_patch_small}/>)}
         </div>
     );
 };
