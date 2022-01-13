@@ -1,0 +1,6 @@
+.UserDetails{
+    padding: 10px;
+    background: lightyellow;
+    max-width: 50%;
+    flex-grow: 1;
+}

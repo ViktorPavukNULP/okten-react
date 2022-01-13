@@ -1,0 +1,8 @@
+.User{
+    background: lightpink;
+    margin: 5px;
+    padding: 10px;
+}
+.User h2,h3{
+    margin: 5px;
+}
