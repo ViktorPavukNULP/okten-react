@@ -5,3 +5,7 @@
 .AllUsers{
     width: 50%;
 }
+.Posts{
+    padding: 10px;
+    background: lightcyan;
+}
