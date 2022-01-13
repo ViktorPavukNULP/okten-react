@@ -1,0 +1,10 @@
+.User{
+    padding: 10px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin: 5px;
+    max-width: 50%;
+}
+.User h3{
+    margin: 0;
+}
