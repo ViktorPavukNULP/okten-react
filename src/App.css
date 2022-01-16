@@ -1,11 +1,4 @@
-.Users{
-    background: antiquewhite;
+.Wrap{
+    width: 100%;
     display: flex;
-}
-.AllUsers{
-    width: 50%;
-}
-.Posts{
-    padding: 10px;
-    background: lightcyan;
 }

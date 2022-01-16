@@ -2,7 +2,7 @@ import React from 'react';
 
 import './UserDetails.css';
 
-const UserDetails = ({user, getPostId}) => {
+const UserDetails = ({user, getUserId}) => {
     return (
         <div className="UserDetails">
             <h2>{user.id} - {user.name}</h2>
@@ -19,7 +19,7 @@ const UserDetails = ({user, getPostId}) => {
             <h3>{user.company.name}</h3>
             <h3>{user.company.catchPhrase}</h3>
             <h3>{user.company.bs}</h3>
-            <button onClick={() => getPostId(user.id)}>Get posts</button>
+            <button onClick={() => getUserId(user.id)}>Get posts</button>
         </div>
     );
 };

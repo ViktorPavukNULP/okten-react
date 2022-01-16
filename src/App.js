@@ -1,45 +1,32 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
-import {userService} from "./services/user.service";
-import {postService} from "./services/post.service";
-import User from "./components/User/User";
 import UserDetails from "./components/User-details/UserDetails";
-import Post from "./components/Post/Post";
 import "./App.css";
+import Users from "./components/Users/Users";
+import Posts from "./components/Posts/Posts";
 
 
 function App() {
 
-    const [users, setUsers] = useState([]);
     const [user, setUser] = useState(null);
-    const [posts, setPosts] = useState([]);
+    const [userId, setUserId] = useState(null);
 
-    useEffect(() => {
-        userService.getAll()
-            .then(value => setUsers(value))
-    }, [])
-
-    const getUserId = (id) => {
-        userService.getById(id)
-            .then(value => setUser(value))
+    const getUser = (user) => {
+        setUser(user);
+        setUserId(null);
     }
 
-    const getPostByUserId = (id) => {
-        postService.getByUserId(id)
-            .then(value => setPosts(value))
+    const getUserId = (id) => {
+        setUserId(id)
     }
 
     return (
         <div className="App">
-            <div className="Users">
-                <div className="AllUsers">
-                    {users.map(user => <User key={user.id} user={user} getUserId={getUserId}/>)}
-                </div>
-                {user && <UserDetails user={user} getPostId={getPostByUserId}/>}
+            <div className="Wrap">
+                <Users getUser={getUser}/>
+                {user && <UserDetails user={user} getUserId={getUserId}/>}
             </div>
-            <div className="Posts">
-                {posts && posts.map(post => <Post key={post.id} post={post}/>)}
-            </div>
+            {userId && <Posts userId={userId}/>}
         </div>
     );
 }

@@ -6,9 +6,8 @@ const getAll = () => {
 }
 
 const getByUserId = (id) => {
-    return fetch(urls.posts)
+    return fetch(`${urls.users}/${id}/posts`)
         .then(value => value.json())
-        .then(value => value.filter(post=>post.userId === id))
 }
 
 export const postService = {
