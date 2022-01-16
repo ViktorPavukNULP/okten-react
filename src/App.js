@@ -35,13 +35,6 @@ function App() {
 
     return (
         <div className="App">
-            {/*<form onSubmit={send}>*/}
-            {/*    <label>Name: <input type="text" name="name" value={form.name} onChange={onFormChange}/></label>*/}
-            {/*    <label>Userame: <input type="text" name="username" value={form.username}*/}
-            {/*                           onChange={onFormChange}/></label>*/}
-            {/*    <label>Email: <input type="text" name="email" value={form.email} onChange={onFormChange}/></label>*/}
-            {/*    <button>Filter</button>*/}
-            {/*</form>*/}
             <Form filterUsers={filterUsers}/>
             <Users users={filteredUsers}/>
         </div>
