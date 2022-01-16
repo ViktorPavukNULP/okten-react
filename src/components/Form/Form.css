@@ -1,0 +1,8 @@
+form input,button{
+    font-size: 20px;
+}
+
+form label{
+    font-size: 20px;
+    margin: 5px;
+}
