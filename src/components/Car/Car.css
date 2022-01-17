@@ -1,0 +1,8 @@
+.Car{
+    border: black 1px solid;
+    margin: 10px;
+    padding: 10px;
+}
+.Car h3{
+    margin: 5px;
+}
