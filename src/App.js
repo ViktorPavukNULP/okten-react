@@ -12,7 +12,7 @@ function App() {
 
     return (
         <div className="App">
-            <Form update={update}/>
+            <Form update={update} car={car}/>
             <Cars trigger={car}/>
         </div>
     );
