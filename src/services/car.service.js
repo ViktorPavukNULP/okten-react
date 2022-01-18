@@ -19,7 +19,7 @@ const getById = (id) => {
 }
 
 const updateById = (id, car) => {
-    return axiosInstance.get(`${urls.cars}/${id}`, car).then(value => value.data)
+    return axiosInstance.patch(`${urls.cars}/${id}`, car).then(value => value.data)
 }
 
 const deleteById = (id) => {

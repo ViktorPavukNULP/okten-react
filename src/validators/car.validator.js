@@ -1,6 +1,7 @@
 import Joi from "joi";
 
 export const CarValidator = Joi.object({
+    id: Joi.number().min(0).max(100000),
     model: Joi.string().regex(new RegExp('^[[A-Za-zА-яіїІЇёЁ]{1,20}$')).required().messages({
         'string.pattern.base': "Only letters"
     }),

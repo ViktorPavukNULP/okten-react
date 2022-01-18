@@ -9,10 +9,9 @@ const Form = ({update, car}) => {
     const [formError, serFormError] = useState({model: '', price: '', year: ''})
     const {
         register, handleSubmit, watch, formState: {errors}
-    } = useForm({resolver: joiResolver(CarValidator), mode: "onTouched"});
+    } = useForm(); // {resolver: joiResolver(CarValidator), mode: "onTouched"}
 
-    const submit = (car) => {
-        console.log(car);
+    const addCar = (car) => {
         carService.createCar(car).then(value => {
             console.log(value);
             update(value);
@@ -23,9 +22,25 @@ const Form = ({update, car}) => {
         });
     }
 
+    const updateById = (car) => {
+        carService.updateById(car.id, car).then(value => {
+            console.log(value);
+            update(car);
+        });
+    }
+
+    const deleteById = (car) => {
+        carService.deleteById(car.id).then(value => {
+            console.log(value);
+            update(car);
+        });
+    }
+
     return (
         <div>
-            <form onSubmit={handleSubmit(submit)}>
+            <form onSubmit={handleSubmit()}>
+                <div><label>ID: <input type="text" defaultValue={''} {...register("id")}/></label></div>
+                {errors.id && <span>{errors.id.message}</span>}
                 <div><label>Model: <input type="text" defaultValue={''} {...register("model")}/></label></div>
                 {/*{formError.model && <span>{formError.model}</span>}*/}
                 {errors.model && <span>{errors.model.message}</span>}
@@ -36,9 +51,11 @@ const Form = ({update, car}) => {
                 {/*{formError.year && <span>{formError.year}</span>}*/}
                 {errors.year && <span>{errors.year.message}</span>}
                 <div>
-                    <button>Create</button>
+                    <button onClick={handleSubmit(addCar)}>Create</button>
+                    <button onClick={handleSubmit(updateById)}>Update by ID</button>
+                    <button onClick={handleSubmit(deleteById)}>Delete by ID</button>
                 </div>
-                {car && <span>Добавлено {car.model}</span>}
+                {car && <span>Виконано {car.id} - {car.model}</span>}
             </form>
         </div>
     );
