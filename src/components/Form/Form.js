@@ -3,12 +3,15 @@ import {useForm} from 'react-hook-form';
 
 import {carService} from "../../services/car.service";
 
-const Form = () => {
+const Form = ({update}) => {
     const [formError, serFormError] = useState({model: '', price: '', year: ''})
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
 
     const submit = (car) => {
-        carService.createCar(car).then(value => console.log(value)).catch(error => {
+        carService.createCar(car).then(value => {
+            console.log(value);
+            update(value);
+        }).catch(error => {
             serFormError(error.response.data)
         });
     }
