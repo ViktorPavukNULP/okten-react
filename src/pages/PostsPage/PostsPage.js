@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {postService} from "../../services/post.service";
 import {Link, Outlet} from "react-router-dom";
 
+import {postService} from "../../services/post.service";
 import "./PostsPage.css";
 
 const PostsPage = () => {

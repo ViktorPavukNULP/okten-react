@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {userService} from "../../services/user.service";
 import {Link, Outlet} from "react-router-dom";
 
+import {userService} from "../../services/user.service";
 import "./UsersPage.css";
 
 const UsersPage = () => {
@@ -14,14 +14,15 @@ const UsersPage = () => {
 
     return (
         <div className="UsersPage">
-            <div className="AllUsers">{users.map(user => {
+            <div className="AllUsers">
+                {users.map(user => {
                 return <p key={user.id}>
                     {user.id} - {user.name}
-                    <Link to={user.id.toString()} state={user}>
-                        <button>User details</button>
-                    </Link>
+                    <Link to={user.id.toString()} state={user}><button>User details</button></Link>
+                    <Link to={`${user.id.toString()}/albums`} state={user.id}><button>Albums</button></Link>
                 </p>
-            })}</div>
+            })}
+            </div>
             <Outlet/>
         </div>
     );

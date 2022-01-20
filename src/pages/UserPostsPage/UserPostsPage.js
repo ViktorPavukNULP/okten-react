@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {postService} from "../../services/post.service";
-import {useLocation} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 import "./UserPostsPage.css";
 
 const UserPostsPage = () => {
-    const {state} = useLocation();
+    const {id} = useParams();
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        postService.getByUserId(state)
+        postService.getByUserId(id)
             .then(value => setPosts(value))
-    }, [state]);
+    }, [id]);
 
     return (
         <div className="UserPostsPage">

@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
-import {commentsService} from "../../services/comments.service";
+import {commentService} from "../../services/comment.service";
 import "./PostCommentsPage.css";
 
 const PostCommentsPage = () => {
-    const {state} = useLocation();
+    const {id} = useParams();
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        commentsService.getByPostId(state)
+        commentService.getByPostId(id)
             .then(value => setComments(value))
-    }, [state]);
+    }, [id]);
 
     return (
         <div className="PostsCommentsPage">

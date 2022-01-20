@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {postService} from "../../services/post.service";
 import {Link, Outlet, useLocation, useParams} from "react-router-dom";
 
+import {postService} from "../../services/post.service";
 import "./PostDetailsPage.css";
 
 const PostDetailsPage = () => {
@@ -17,7 +17,7 @@ const PostDetailsPage = () => {
         }
         postService.getById(id)
             .then(value => setPost(value))
-    },[state, id]);
+    },[id]);
 
     return (
         <div className="PostDetails">
