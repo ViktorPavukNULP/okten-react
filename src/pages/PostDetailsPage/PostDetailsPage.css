@@ -1,0 +1,9 @@
+.PostDetails{
+    width: 50%;
+}
+
+.Post {
+    background: lightblue;
+    margin: 5px;
+    padding: 10px;
+}

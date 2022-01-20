@@ -1,0 +1,14 @@
+.UsersPage{
+    width: 100%;
+    display: flex;
+}
+
+.AllUsers{
+    width: 50%;
+    background: lightgreen;
+    margin: 5px;
+}
+
+.AllUsers p{
+    margin: 10px;
+}

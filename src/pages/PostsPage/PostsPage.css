@@ -1,0 +1,14 @@
+.PostsPage{
+    width: 100%;
+    display: flex;
+}
+
+.AllPosts{
+    margin: 5px;
+    width: 50%;
+    background: lightblue;
+}
+
+.AllPosts p{
+    margin: 5px;
+}
