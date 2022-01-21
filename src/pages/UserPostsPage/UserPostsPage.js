@@ -3,6 +3,7 @@ import {postService} from "../../services/post.service";
 import {useParams} from "react-router-dom";
 
 import "./UserPostsPage.css";
+import UserPost from "../../components/UserPost/UserPost";
 
 const UserPostsPage = () => {
     const {id} = useParams();
@@ -15,13 +16,9 @@ const UserPostsPage = () => {
 
     return (
         <div className="UserPostsPage">
-            {posts.map(post => {
-                return <p key={post.id}>
-                    {post.id} - {post.title}
-                </p>
-            })}
+            {posts.map(post => <UserPost key={post.id} post={post}/>)}
         </div>
     );
 };
 
-export default UserPostsPage;
+export {UserPostsPage};

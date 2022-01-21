@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 
 import {userService} from "../../services/user.service";
 import "./UsersPage.css";
+import User from "../../components/User/User";
 
 const UsersPage = () => {
     const [users, setUsers] = useState([]);
@@ -15,17 +16,11 @@ const UsersPage = () => {
     return (
         <div className="UsersPage">
             <div className="AllUsers">
-                {users.map(user => {
-                return <p key={user.id}>
-                    {user.id} - {user.name}
-                    <Link to={user.id.toString()} state={user}><button>User details</button></Link>
-                    <Link to={`${user.id.toString()}/albums`} state={user.id}><button>Albums</button></Link>
-                </p>
-            })}
+                {users.map(user => <User key={user.id} user={user}/>)}
             </div>
             <Outlet/>
         </div>
     );
 };
 
-export default UsersPage;
+export {UsersPage};

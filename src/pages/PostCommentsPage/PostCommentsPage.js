@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 
 import {commentService} from "../../services/comment.service";
 import "./PostCommentsPage.css";
+import PostComments from "../../components/PostComments/PostComments";
 
 const PostCommentsPage = () => {
     const {id} = useParams();
@@ -15,14 +16,9 @@ const PostCommentsPage = () => {
 
     return (
         <div className="PostsCommentsPage">
-            {comments.map(comment => {
-                return <div key={comment.id}>
-                    <h3>{comment.id} - {comment.name}</h3>
-                    <p>{comment.body}</p>
-                </div>
-            })}
+            {comments.map(comment => <PostComments key={comment.id} comment={comment}/>)}
         </div>
     );
 };
 
-export default PostCommentsPage;
+export {PostCommentsPage};

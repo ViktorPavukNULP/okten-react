@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 
 import {postService} from "../../services/post.service";
 import "./PostsPage.css";
+import Post from "../../components/Post/Post";
 
 const PostsPage = () => {
 
@@ -16,16 +17,11 @@ const PostsPage = () => {
     return (
         <div className="PostsPage">
             <div className="AllPosts">
-                {posts.map(post => {
-                    return <p key={post.id}>
-                        {post.id} - {post.title}
-                        <Link to={post.id.toString()} state={post}><button>Post details</button></Link>
-                    </p>
-                })}
+                {posts.map(post => <Post key={post.id} post={post}/>)}
             </div>
             <Outlet/>
         </div>
     );
 };
 
-export default PostsPage;
+export {PostsPage};
