@@ -14,6 +14,9 @@ const reducer = (state, action) => {
             state.dogs.push(action.name)
             break;
         }
+        default:{
+            throw new Error("Wrong animal")
+        }
 
     }
     console.log(state);
