@@ -1,10 +1,14 @@
 import React from 'react';
 
-const Dog = ({dog}) => {
+const Dog = ({dog, dispatch}) => {
+    function onDelete() {
+        dispatch({type: "Delete", pet: "dogs", id: dog.id})
+    }
+
     return (
         <div className="Dog">
-            {dog}
-            <button>Delete</button>
+            {dog.name}
+            <button onClick={onDelete}>Delete</button>
         </div>
     );
 };

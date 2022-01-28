@@ -5,15 +5,13 @@ const Form = ({dispatch}) => {
     const {register, handleSubmit} = useForm();
 
     const addCat = (form) => {
-        console.log(form);
-        dispatch({type: "Cat", name: form.cat});
+        dispatch({type: "Add", pet: "cats", name: form.cat});
     }
     const addDog = (form) => {
-        console.log(form);
-        dispatch({type: "Dog", name: form.dog});
+        dispatch({type: "Add", pet: "dogs", name: form.dog});
     }
     return (
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
             <label>
                 Add Cat
                 <input type="text" {...register("cat")}/>
