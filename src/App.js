@@ -1,8 +1,8 @@
-import "./App.css";
 import {useReducer} from "react";
-import Dog from "./components/Dog/Dog";
-import Cat from "./components/Cat/Cat";
+
 import Form from "./components/Form/Form";
+import Main from "./components/Main/Main";
+import "./App.css";
 
 const reducer = (state, action) => {
     const newState = {...state}
@@ -17,8 +17,8 @@ const reducer = (state, action) => {
             newState[action.pet] = newState[action.pet].filter(pet => pet.id !== action.id);
             break;
         }
-        default:{
-            throw new Error("Wrong animal")
+        default: {
+            throw new Error("Wrong action")
         }
 
     }
@@ -30,17 +30,8 @@ function App() {
     const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
     return (
         <div className="App">
-            <div className="Header">
-                <Form dispatch={dispatch}/>
-            </div>
-            <div className="Main">
-                <div className="Cats">
-                    {state.cats && state.cats.map(cat => <Cat key={cat.id} cat={cat} dispatch={dispatch}/>)}
-                </div>
-                <div className="Dogs">
-                    {state.dogs && state.dogs.map(dog => <Dog key={dog.id} dog={dog} dispatch={dispatch}/>)}
-                </div>
-            </div>
+            <Form dispatch={dispatch}/>
+            <Main state={state} dispatch={dispatch}/>
         </div>
     );
 }

@@ -11,18 +11,20 @@ const Form = ({dispatch}) => {
         dispatch({type: "Add", pet: "dogs", name: form.dog});
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Add Cat
-                <input type="text" {...register("cat")}/>
-                <button onClick={handleSubmit(addCat)}>Save</button>
-            </label>
-            <label>
-                Add Dog
-                <input type="text" {...register("dog")}/>
-                <button onClick={handleSubmit(addDog)}>Save</button>
-            </label>
-        </form>
+        <div className="Header">
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Add Cat
+                    <input type="text" {...register("cat")}/>
+                    <button onClick={handleSubmit(addCat)}>Save</button>
+                </label>
+                <label>
+                    Add Dog
+                    <input type="text" {...register("dog")}/>
+                    <button onClick={handleSubmit(addDog)}>Save</button>
+                </label>
+            </form>
+        </div>
     );
 };
 
