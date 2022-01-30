@@ -8,12 +8,12 @@ const Car = ({car}) => {
     const dispatch = useDispatch();
     return (
         <div className="Car">
-            <div>
-                <div>Model: {car.model}</div>
-                <div>Price: {car.price}</div>
-                <div>Year: {car.year}</div>
-                <button onClick={() => dispatch(deleteCar({id:car.id}))}>Delete</button>
-            </div>
+            <div>ID: {car.id}</div>
+            <div>Model: {car.model}</div>
+            <div>Price: {car.price}</div>
+            <div>Year: {car.year}</div>
+            <button onClick={() => dispatch(deleteCar({id: car.id}))}>Delete</button>
+            <button>Update</button>
         </div>
     );
 };

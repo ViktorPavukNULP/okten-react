@@ -13,7 +13,8 @@
     "axios": "^0.24.0",
     "react-hook-form": "^7.25.3",
     "@reduxjs/toolkit": "^1.7.1",
-    "react-redux": "^7.2.6"
+    "react-redux": "^7.2.6",
+    "joi": "^17.6.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.38",
