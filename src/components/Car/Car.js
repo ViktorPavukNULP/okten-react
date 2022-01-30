@@ -1,7 +1,7 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 
-import {deleteCar} from "../../store/car.slice";
+import {deleteCar, setCarForUpdate} from "../../store/car.slice";
 import "./Car.css";
 
 const Car = ({car}) => {
@@ -13,7 +13,7 @@ const Car = ({car}) => {
             <div>Price: {car.price}</div>
             <div>Year: {car.year}</div>
             <button onClick={() => dispatch(deleteCar({id: car.id}))}>Delete</button>
-            <button>Update</button>
+            <button onClick={() => dispatch(setCarForUpdate(car))}>Update</button>
         </div>
     );
 };
