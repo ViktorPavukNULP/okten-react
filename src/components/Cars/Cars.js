@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
-import Car from "../Car/Car";
 import {useDispatch, useSelector} from "react-redux";
+
+import Car from "../Car/Car";
 import {getAllCars} from "../../store/car.slice";
 
 const Cars = () => {

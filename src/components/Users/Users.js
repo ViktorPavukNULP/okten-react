@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+
 import {getAllUsers} from "../../store/user.slice";
 import User from "../User/User";
 
