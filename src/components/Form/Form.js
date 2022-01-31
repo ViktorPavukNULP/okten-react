@@ -5,6 +5,7 @@ import {joiResolver} from "@hookform/resolvers/joi";
 
 import {createCar, updateCar} from "../../store/car.slice";
 import {CarValidator} from "../../validators/car.validator";
+import "./Form.css";
 
 const Form = () => {
     const {handleSubmit, register, reset, setValue, formState: {errors}} = useForm({resolver: joiResolver(CarValidator), mode: "onTouched"});
@@ -27,11 +28,11 @@ const Form = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div><label>Model: <input type="text" {...register('model')}/></label></div>
-            {errors.model && <span>{errors.model.message}</span>}
+            {errors.model && <div className="error">{errors.model.message}</div>}
             <div><label>Price: <input type="text" {...register('price')}/></label></div>
-            {errors.price && <span>{errors.price.message}</span>}
+            {errors.price && <div className="error">{errors.price.message}</div>}
             <div><label>Year: <input type="text" {...register('year')}/></label></div>
-            {errors.year && <span>{errors.year.message}</span>}
+            {errors.year && <div className="error">{errors.year.message}</div>}
             <div>
                 <button onClick={handleSubmit(submit)}>Create</button>
             </div>
