@@ -4,7 +4,7 @@ import {getAllUsers} from "../../store/user.slice";
 import User from "../User/User";
 
 const Users = () => {
-    const {users} = useSelector(state => state["userReducer"]);
+    const {users, status, error} = useSelector(state => state["userReducer"]);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -13,6 +13,8 @@ const Users = () => {
 
     return (
         <div>
+            {status==="pending" && <h2>Loading...</h2>}
+            {error && <h2>{error}</h2>}
             {users.map(user=> <User key={user.id} user={user}/>)}
         </div>
     );

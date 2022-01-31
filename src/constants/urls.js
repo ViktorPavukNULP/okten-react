@@ -8,4 +8,3 @@ export const urls = {
 }
 
 export default baseURL;
-
