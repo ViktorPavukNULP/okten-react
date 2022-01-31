@@ -5,7 +5,7 @@ import {getAllPosts} from "../../store/post.slice";
 import Post from "../Post/Post";
 
 const Posts = () => {
-    const {posts} = useSelector(state => state["postReducer"]);
+    const {posts, status, error} = useSelector(state => state["postReducer"]);
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -13,6 +13,8 @@ const Posts = () => {
     },[])
     return (
         <div>
+            {status === "pending" && <h2>Loading...</h2>}
+            {error && <h2>{error}</h2>}
             {posts.map(post=> <Post key={post.id} post={post}/>)}
         </div>
     );

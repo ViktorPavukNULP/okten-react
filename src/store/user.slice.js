@@ -7,7 +7,7 @@ export const getAllUsers = createAsyncThunk(
       try{
           return await userService.getAll();
       }catch (e) {
-          return rejectWithValue(e);
+          return rejectWithValue(e.message);
       }
     }
 );
@@ -29,7 +29,7 @@ const userSlice = createSlice({
         },
         [getAllUsers.rejected]: (state, action) => {
             state.status = "error";
-            state.error = action.payload.toString();
+            state.error = action.payload;
         }
     }
 });

@@ -10,7 +10,7 @@ export const getAllPosts = createAsyncThunk(
             dispatch(setPosts(posts));
             return posts;
         }catch (e) {
-            rejectWithValue(e);
+            return rejectWithValue(e.message);
         }
     }
 );
@@ -18,11 +18,25 @@ export const getAllPosts = createAsyncThunk(
 const postSlice = createSlice({
     name: "postSlice",
     initialState: {
-        posts: []
+        posts: [],
+        status: null,
+        error: null
     },
     reducers: {
         setPosts: (state, action) => {
             state.posts = action.payload;
+        }
+    },
+    extraReducers: {
+        [getAllPosts.pending]: (state) => {
+            state.status = "pending";
+        },
+        [getAllPosts.fulfilled]: (state) => {
+            state.status = "fulfilled";
+        },
+        [getAllPosts.rejected]: (state, action) => {
+            state.status = "error";
+            state.error = action.payload;
         }
     }
 })

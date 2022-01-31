@@ -39,7 +39,7 @@ export const updateCar = createAsyncThunk(
         try {
             await carService.update(id, newCar);
             dispatch(setCarForUpdate({id: '', model: '', price: '', year: ''}));
-            dispatch(getAllCars());
+            dispatch(updateCarState({...newCar, id: id}));
         } catch (e) {
             console.log(e);
         }
@@ -62,23 +62,33 @@ const carSlice = createSlice({
         },
         setCarForUpdate: (state, action) => {
             state.carForUpdate = action.payload;
+        },
+        updateCarState: (state, action) => {
+            state.cars = state.cars.map(car => (car.id === action.payload.id ? action.payload : car));
         }
+},
+extraReducers: {
+    [getAllCars.pending]
+:
+    (state) => {
+        state.status = "pending";
     },
-    extraReducers: {
-        [getAllCars.pending]: (state, action) => {
-            state.status = "pending";
-        },
-        [getAllCars.fulfilled]: (state, action) => {
-            state.status = "fulfilled";
-            state.cars = action.payload;
-        },
-        [getAllCars.rejected]: (state, action) => {
-            state.status = "error";
-            state.error = action.payload;
-        }
+        [getAllCars.fulfilled]
+:
+    (state, action) => {
+        state.status = "fulfilled";
+        state.cars = action.payload;
+    },
+        [getAllCars.rejected]
+:
+    (state, action) => {
+        state.status = "error";
+        state.error = action.payload;
     }
-});
+}
+})
+;
 
 const carReducer = carSlice.reducer;
-export const {addCar, removeCar, setCarForUpdate} = carSlice.actions;
+export const {addCar, removeCar, setCarForUpdate, updateCarState} = carSlice.actions;
 export default carReducer;
