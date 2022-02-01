@@ -1,0 +1,21 @@
+.Task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: lightblue;
+    padding: 10px;
+    margin: 5px;
+}
+
+.Task button{
+    font-size: 18px;
+    padding: 8px 32px;
+}
+
+.Task div{
+    margin: 5px 25px;
+}
+
+.Task .Done{
+    text-decoration: line-through;
+}
