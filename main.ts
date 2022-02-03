@@ -45,7 +45,7 @@ console.log(launch1.rocket);
 const user = {
     name: "Max",
     age: 18,
-    gender: 'male'
+    gender: "male"
 }
 
 function sum(a: number, b: number): number {
@@ -58,7 +58,7 @@ function showSum(a: number, b: number): void {
     console.log(a + b);
 }
 
-showSum(4, 2)
+showSum(4, 2);
 
 function incAge(someUser: IUser, inc: number): IUser {
     someUser.age += inc
