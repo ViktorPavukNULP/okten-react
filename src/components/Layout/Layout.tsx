@@ -1,17 +1,16 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 
-import "./Header.css"
+import Header from "../Header/Header";
+import "./Layout.css";
 
-const Header = () => {
+const Layout = () => {
     return (
-        <div className="Header">
-            <NavLink to="/cars">Cars</NavLink>
-            <NavLink to="/users">Users</NavLink>
-            <NavLink to="/posts">Posts</NavLink>
-            <NavLink to="/comments">Comments</NavLink>
+        <div className="Layout">
+            <Header/>
+            <div className="Outlet"><Outlet/></div>
         </div>
     );
 };
 
-export default Header;
+export default Layout;
